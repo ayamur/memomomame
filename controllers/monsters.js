@@ -1,14 +1,14 @@
-import {Monmes} from "../models/monmes.js"
+import {Monster} from "../models/monster.js"
 import {Message} from "../models/message.js"
-import {Profile} from "../models/profile.jd"
+import {Profile} from "../models/profile.js"
 
 function index(req, res) {
   Profile.find({})
   .populate("owner")
-  .then(profile => {
-    res.render('memomomame/index', {
+  .then(profiles => {
+    res.render('monsters/index', {
       profiles,
-      title: "title here"
+      title: "title here",
       user: req.user ? req.user : null
     })
   })
@@ -23,5 +23,6 @@ function newMonmes(req, res){
 }
 
   export {
+    index,
     newMonmes as new,
   }

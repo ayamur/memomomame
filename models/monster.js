@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 
-const monmesSchema = new Schema({
+const monsterSchema = new Schema({
   ownerGive: { type: Schema.Types.ObjectId, ref: "Profile" },
   ownerGet: { type: Schema.Types.ObjectId, ref: "Profile" },
   monster: {type: String, enum: ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten']},
@@ -11,8 +11,8 @@ const monmesSchema = new Schema({
   timestamps: true,
 })
 
-const Monmes = mongoose.model('Monmes', monmesSchema)
+const Monster = mongoose.model('Monster', monsterSchema)
 
 export {
-  Monmes
+  Monster
 }

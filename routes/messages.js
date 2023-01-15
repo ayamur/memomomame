@@ -6,7 +6,7 @@ const router = Router()
 //localhost:3000/messages
 
 //GET localhost:300/messages
-router.get('/new', messagesCtrl.new)
+router.get('messages/new', messagesCtrl.new)
 
 export{
   router
