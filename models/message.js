@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 
 const messageSchema = new Schema({
   phrase: { type: String, required: true },
-  ownerGive: { type: Schema.Types.ObjectId, ref: "Profile" }
+  owner: { type: Schema.Types.ObjectId, ref: "Profile" }
 }, {
   timestamps: true,
 })
