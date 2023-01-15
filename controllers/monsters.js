@@ -2,14 +2,35 @@ import {Monster} from "../models/monster.js"
 import {Message} from "../models/message.js"
 import {Profile} from "../models/profile.js"
 
+
+function newMonster(req, res){
+  res.render("monsters/new", {
+    title: "Send some mail!"
+  })
+}
+
+function create(req, res) {
+  for (const key in req.body) {
+    // Key can be "title", "releaseYear", etc.
+    if(req.body[key] === "") delete req.body[key]
+    // req.body.releaseYear is "" so we delete it.
+  }
+  Monster.create(req.body)
+  .then(monster => {
+    res.redirect(`/monsters/${monster._id}`)
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/monsters')
+  })
+}
+
 function index(req, res) {
-  Profile.find({})
-  .populate("owner")
-  .then(profiles => {
+  Monster.find({})
+  .then(monsters => {
     res.render('monsters/index', {
-      profiles,
+      monsters,
       title: "title here",
-      user: req.user ? req.user : null
     })
   })
   .catch(err => {
@@ -18,11 +39,8 @@ function index(req, res) {
   })
 }
 
-function newMonmes(req, res){
-  console.log("monmes is being created!")
-}
-
   export {
-    index,
-    newMonmes as new,
+    newMonster as new,
+    create,
+    index
   }

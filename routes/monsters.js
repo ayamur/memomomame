@@ -10,7 +10,7 @@ const router = Router()
 router.get('/', monstersCtrl.index)
 
 //GET localhost:3000/monsters/index
-router.get('monsters/index', monstersCtrl.index)
+router.get('/index', monstersCtrl.index)
 
 export{
   router
