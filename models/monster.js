@@ -6,7 +6,7 @@ const monsterSchema = new Schema({
   ownerGive: { type: Schema.Types.ObjectId, ref: "Profile" },
   ownerGet: { type: Schema.Types.ObjectId, ref: "Profile" },
   monster: {type: String, enum: ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten']},
-  message: { type: String, required: true }
+  message: { type: Schema.Types.ObjectId, ref: 'Message', required: true }
 }, {
   timestamps: true,
 })
