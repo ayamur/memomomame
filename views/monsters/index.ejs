@@ -1,13 +1,23 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/index.css" />
 <%- include('../partials/nav') %>
 
 <section>
-  <h1>Address Book of <em>Menagerie of Monsters with Motivational Mail Messages!</em></h1>
-  <ul>
-    <% profiles.forEach(profile => { %>
-      <li>📮<a href="/monsters/<%= profile.name %>"></a>'s Mailbox</li>
-      <% }) %>
+  <h1>Monsters! </h1>
+  <% if (user) { %>
+    <h2>Make a Monster Message!</h2>
+    <form action="/monsters" method="POST">
+      <label>
+        Name: 
+        <input type="text" name="name" autocomplete="off">
+      </label>
+      <label>
+      <button type="submit">Send Monster</button>
+    </form>
+  <% } %>
+	<ul>
+  <% monsters.forEach(monster => { %>
+    <li> <%= monster.name %> is (message placeholder)</li>
+  <% }) %>
   </ul>
 </section>
 

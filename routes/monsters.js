@@ -1,17 +1,20 @@
 import { Router } from 'express'
 import * as monstersCtrl from '../controllers/monsters.js'
-import { isLoggedIn } from "../middleware/middleware.js"
+import { isLoggedIn } from '../middleware/middleware.js'
+
 
 const router = Router()
 
-//localhost:3000/monsters
-
-//GET localhost:3000/monsters
 router.get('/', monstersCtrl.index)
+router.get('/:id', monstersCtrl.show)
+router.get('/:id/edit', isLoggedIn, monstersCtrl.edit)
 
-//GET localhost:3000/monsters/index
-router.get('/index', monstersCtrl.index)
+router.post('/', isLoggedIn, monstersCtrl.create)
 
-export{
+router.put('/:id', isLoggedIn, monstersCtrl.update)
+
+router.delete('/:id', isLoggedIn, monstersCtrl.delete)
+
+export {
   router
 }

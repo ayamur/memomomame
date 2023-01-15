@@ -1,0 +1,20 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+  <h1>Edit the Monster</h1>
+  <form action="/monster/<%= monster._id %>?_method=PUT" method="POST">
+    <label>
+      Name: 
+      <input 
+        type="text"
+        name="name" 
+        value="<%= monster.name %>" 
+        autocomplete="off"
+      >
+    </label>
+    <button type="submit">Edit the Monster</button>
+  </form>
+</section>
+
+<%- include('../partials/footer') %>
