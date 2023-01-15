@@ -3,7 +3,8 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const messageSchema = new Schema({
-  name: { type: String, required: true }
+  phrase: { type: String, required: true },
+  ownerGive: { type: Schema.Types.ObjectId, ref: "Profile" }
 }, {
   timestamps: true,
 })
