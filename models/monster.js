@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose"
 
 const Schema = mongoose.Schema
 
@@ -9,7 +9,7 @@ const monsterSchema = new Schema({
   timestamps: true
 })
 
-const Monster = mongoose.model('Monster', monsterSchema)
+const Monster = mongoose.model("Monster", monsterSchema)
 
 export {
   Monster
