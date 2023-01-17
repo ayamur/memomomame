@@ -3,9 +3,6 @@
 
 <main>
   <h1>Welcome and Merry Met, <%= user ? user.profile.name + "!" : "New Visitor!" %></h1>
-  <div>
-    <img src="../public/assets/images/TartarSpace.png" alt="Blue Dog in Space">
-  </div>
   <% if (user?.profile.avatar) { %>
     <div>
       <img
@@ -14,6 +11,18 @@
       />
     </div>
   <% } %>
+  <div>
+    <button type="submit" href="../views/monsters/new.ejs">🟣</button>Send Out Monster Mail!
+  </div>
+  <div>
+    <button type="submit" href="../views/monsters/show.ejs">🟢</button>Check Monster Mailbox!
+  </div>
+  <div>
+    <button type="submit" href="../views/monsters/new.ejs">🟠</button>User Mailboxes!
+  </div>
+  <div>
+    <button type="submit" href="../views/monsters/new.ejs">🔵</button>Read the Tutorial!
+  </div>
 </main>
 
 <%- include('./partials/footer') %>
