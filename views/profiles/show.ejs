@@ -30,7 +30,7 @@
       <%= isSelf ? "You have" : `${profile.name} has` %> monsters! Here they are!
     </h2>
     <% profile.monsters.forEach(monster => { %>
-      <h3>
+      <!-- <h3>
         <%= getRandomMonster() %> 
         <%= monster.name %> is a <label for="monster-select">Choose:</label>
         <select name="monster" id="monster-select">
@@ -39,7 +39,7 @@
           <option value="3">Three</option>
           <option value="4">Four</option>
           <option value="5" selected>Five</option>
-        </select>
+        </select> -->
         <% if (isSelf) { %> 
           <form 
             action="/profiles/monsters/<%= monster._id %>?_method=DELETE" 
@@ -52,6 +52,24 @@
           </div> -->
           <button type="submit"> Free <%= monster.name %></button>
           </form>
+          <section>
+  <h1>Edit the Monster! </h1>
+  <form 
+    action="/monsters/<%= monster._id %>?_method="PUT""
+    method="POST"
+  >
+    <label>
+      Name: 
+      <input 
+        type="text"
+        name="name" 
+        value="<%= monster.name %>" 
+        autocomplete="off"
+      >
+    </label>
+    <button type="submit">Edit the Monster</button>
+  </form>
+</section>
         <% } %>
       </h3>
     <% }) %>

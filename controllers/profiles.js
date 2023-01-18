@@ -69,9 +69,43 @@ function deleteMonster(req, res) {
   })
 }
 
+function edit(req, res) {
+  Profile.findById(req.params.id)
+  .then(profile => {
+    res.render('profiles/edit', {
+      profile,
+      title: 'edit Profile'
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/profiles')
+  })
+}
+
+function update(req, res) {
+  Profile.findById(req.params.id)
+  .then(profile => {
+    if (profile.owner.equals(req.user.profile._id)) {
+      profile.updateOne(req.body)
+      .then(()=> {
+        res.redirect(`/profiles/${profile._id}`)
+      })
+    } else {
+      throw new Error('🚫 Not authorized 🚫')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/profiles')
+  })
+}
+
 export {
   index,
   show,
   createMonster,
-  deleteMonster
+  deleteMonster,
+  edit,
+  update
 }

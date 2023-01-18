@@ -8,9 +8,13 @@ router.get('/', isLoggedIn, profilesCtrl.index)
 
 router.get('/:id', isLoggedIn, profilesCtrl.show)
 
-router.post('/:id/monsters', isLoggedIn, profilesCtrl.createMonster)
+router.get('/:id/edit', isLoggedIn, profilesCtrl.edit)
 
-router.delete('/monsters/:id', isLoggedIn, profilesCtrl.deleteMonster)
+router.post('/profiles/:id/monsters', isLoggedIn, profilesCtrl.createMonster)
+
+router.put('/profiles/monsters/:id', isLoggedIn, profilesCtrl.update)
+
+router.delete('/profiles/monsters/:id', isLoggedIn, profilesCtrl.deleteMonster)
 
 export {
   router
