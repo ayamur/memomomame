@@ -1,0 +1,20 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+  <p>From the words <%= message.owner.name %>...</p>
+  <h1><%= message.name %></h1>
+  <% if (message.owner.equals(user?.profile._id)) { %>
+    <a href="/messages/<%= message._id %>/edit">
+      <button class="btn">Edit this Message</button>
+    </a>
+    <form 
+      action="/messages/<%= message._id %>?_method=DELETE"
+      method="POST"
+    >
+      <button class="btn" type="submit">Delete this message 💀</button>
+    </form>
+  <% } %>
+</section>
+
+<%- include('../partials/footer') %>

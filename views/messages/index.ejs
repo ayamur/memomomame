@@ -1,0 +1,26 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+  <h1>Messages!</h1>
+  <% if (user) { %>
+    <form action="/messages" method="POST">
+      <label>
+        Name:
+        <input type="text" name="name" autocomplete="off">
+      </label>
+      <button type="submit">Add Message</button>
+    </form>
+  <% } %>
+  <h2>All the Messages!</h2>
+  <ul>
+    <% messages.forEach(message => { %>
+      <li> 
+        <a href="/messages/<%= message._id %>"><%= message.name %>
+          <% }) %>
+        </a> 
+      </li>
+    </ul> 
+</section>
+
+<%- include('../partials/footer') %>

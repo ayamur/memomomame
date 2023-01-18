@@ -1,115 +1,77 @@
 import { Profile } from "../models/profile.js"
 
-function newProfile(req, res) {
-  Profile.find({})
-  .then(profiles => {
-    res.render("profiles/new", {
-      title: "Add Profile Test 123",
-      profiles: profiles
-    })
-  })
-  .catch(err => {
-    res.redirect("/profiles")
-  })
-}
 
 function index(req, res) {
   Profile.find({})
   .then(profiles => {
-    res.render("profiles/index", {
+    res.render('profiles/index', {
       profiles,
-      title: "test123 profile index"
+			title: "profiles index"
     })
   })
   .catch(err => {
     console.log(err)
-    res.redirect("/")
-  })
-}
-
-function create(req, res) {
-  req.body.owner = req.user.profile._id;
-  Profile.create(req.body)
-  .then(profile => {
-    res.redirect("/profiles")
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect("/profiles")
+    res.redirect('/')
   })
 }
 
 function show(req, res) {
   Profile.findById(req.params.id)
-  .populate("owner")
-  .then(monster => {
+  .then(profile => {
+    const isSelf = profile._id.equals(req.user.profile._id)
     res.render("profiles/show", {
+      title: `monsters ${profile.name}'s profile`,
       profile,
-      title: "Profile test 123 show"
+      isSelf,
+      getRandomMonster: () => {
+        // const monsters = ["/assets/images/emote-alien4.png", "/assets/images/emote-annie4.png", "public/assets/images/emote-apsycho1.png", "public/assets/images/emote-bela2.png", "/assets/images/emote-billyidol.png", "/public/assets/images/emote-bowie-ashes.png", "/assets/images/emote-dracula2.png", "/assets/images/emote-hellraiser.png"]
+        // return monsters[Math.floor(Math.random() * monsters.length)]
+      }
+    })
+  })
+  .catch((err) => {
+    console.log(err)
+    res.redirect("/profiles")
+  })
+}
+
+function createMonster(req, res) {
+  Profile.findById(req.user.profile._id)
+  .then(profile => {
+    profile.monsters.push(req.body)
+    profile.save()
+    .then(() => {
+      res.redirect(`/profiles/${req.user.profile._id}`)
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect(`/profiles/${req.user.profile._id}`)
     })
   })
   .catch(err => {
     console.log(err)
-    res.redirect("/profiles")
+    res.redirect(`/profiles/${req.user.profile._id}`)
   })
 }
 
-function edit(req, res) {
-  Profile.findById(req.params.id)
+function deleteMonster(req, res) {
+  Profile.findById(req.user.profile._id)
   .then(profile => {
-    res.render("profiles/edit", {
-      profile,
-      title: "123 profile edit test"
+    profile.monsters.remove({_id: req.params.id})
+    profile.save()
+    .then(()=> {
+      res.redirect(`/profiles/${req.user.profile._id}`)
     })
   })
   .catch(err => {
     console.log(err)
-    res.redirect("/profiles")
-  })
-}
-
-function update(req, res) {
-  Profile.findById(req.params.id)
-  .then(profile => {
-    if (profile.owner.equals(req.user.profile._id)) {
-      profile.updateOne(req.body)
-      .then(()=> {
-        res.redirect(`/profiles/${profile._id}`)
-      })
-    } else {
-      throw new Error(`🚫 Not authorized 🚫`)
-    }
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect(`/profiles`)
-  })
-}
-
-function deleteProfile(req, res) {
-  Profile.findById(req.params.id)
-  .then(profile => {
-    if (profile.owner.equals(req.user.profile._id)) {
-      profile.delete()
-      .then(() => {
-        res.redirect("/profiles")
-      })
-    } else {
-      throw new Error ("🚫 Not authorized 🚫")
-    }   
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect("/profiles")
+    res.redirect(`/profiles/${req.user.profile._id}`)
   })
 }
 
 export {
-  newProfile as new,
   index,
-  create,
   show,
-  edit,
-  update,
-  deleteProfile as delete,
+  createMonster,
+  deleteMonster
 }

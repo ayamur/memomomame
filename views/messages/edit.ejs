@@ -2,18 +2,21 @@
 <%- include('../partials/nav') %>
 
 <section>
-  <h1>Edit the Monster</h1>
-  <form action="/monster/<%= monster._id %>?_method=PUT" method="POST">
+  <h1>Edit the Message! </h1>
+  <form 
+    action="/messages/<%= message._id %>?_method=PUT"
+    method="POST"
+  >
     <label>
       Name: 
       <input 
         type="text"
         name="name" 
-        value="<%= monster.name %>" 
+        value="<%= message.name %>" 
         autocomplete="off"
       >
     </label>
-    <button type="submit">Edit the Monster</button>
+    <button type="submit">Edit the Message</button>
   </form>
 </section>
 

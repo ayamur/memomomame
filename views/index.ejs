@@ -2,7 +2,7 @@
 <%- include('./partials/nav') %>
 
 <main>
-  <h1>Welcome and Merry Met, <%= user ? user.profile.name + "!" : "New Visitor!" %></h1>
+  <h1>hello, <%= user ? user.profile.name : "friend" %></h1>
   <% if (user?.profile.avatar) { %>
     <div>
       <img
@@ -11,18 +11,6 @@
       />
     </div>
   <% } %>
-  <div>
-    <a href="../views/monsters/new.ejs">🟣</a>Send Out Monster Mail!
-  </div>
-  <div>
-    <a href="../views/profiles/show.ejs">🟢</a>Check Monster Mailbox!
-  </div>
-  <div>
-    <a href="../views/profiles/index.ejs">🟠</a>User Mailboxes!
-  </div>
-  <div>
-    <a href="../views/messages/index.ejs">🔵</a>View Universal Message List!
-  </div>
 </main>
 
 <%- include('./partials/footer') %>
