@@ -10,7 +10,7 @@ router.get('/:id', monstersCtrl.show)
 
 router.get('/:id/edit', isLoggedIn, monstersCtrl.edit)
 
-router.get('/:monsterId/messages/:messageId/edit', isLoggedIn, monstersCtrl.editLetter)
+router.get('/:monsterId/messages/:messageId/edit', isLoggedIn, monstersCtrl.editMessage)
 
 router.post('/', isLoggedIn, monstersCtrl.create)
 

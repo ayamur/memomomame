@@ -104,8 +104,8 @@ function update(req, res) {
 export {
   index,
   show,
-  createMonster,
-  deleteMonster,
+  createMessenger,
+  deleteMessenger,
   edit,
   update
 }
