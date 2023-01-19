@@ -10,19 +10,19 @@ router.get('/:id', monstersCtrl.show)
 
 router.get('/:id/edit', isLoggedIn, monstersCtrl.edit)
 
-router.get('/:monsterId/comments/:letterId/edit', isLoggedIn, monstersCtrl.editLetter)
+router.get('/:monsterId/messages/:messageId/edit', isLoggedIn, monstersCtrl.editLetter)
 
 router.post('/', isLoggedIn, monstersCtrl.create)
 
-router.post('/:id/comments', isLoggedIn, monstersCtrl.addLetter)
+router.post('/:id/messages', isLoggedIn, monstersCtrl.addMessage)
 
 router.put('/:id', isLoggedIn, monstersCtrl.update)
 
-router.put('/:monsterId/letters/:letterId', isLoggedIn, monstersCtrl.updateLetter)
+router.put('/:monsterId/messages/:messageId', isLoggedIn, monstersCtrl.updateMessage)
 
 router.delete('/:id', isLoggedIn, monstersCtrl.delete)
 
-router.delete('/:monsterId/letters/:letterId', isLoggedIn, monstersCtrl.deleteLetter)
+router.delete('/:monsterId/messages/:messageId', isLoggedIn, monstersCtrl.deleteMessage)
 
 export {
   router

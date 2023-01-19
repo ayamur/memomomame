@@ -2,18 +2,18 @@
 <%- include('../partials/nav') %>
 
 <section>
-  <p>From the words <%= message.owner.name %>...</p>
-  <h1><%= message.name %></h1>
-  <% if (message.owner.equals(user?.profile._id)) { %>
-    <a href="/messages/<%= message._id %>/edit">
-      <button class="btn">Edit this Message</button>
-    </a>
-    <form 
-      action="/messages/<%= message._id %>?_method=DELETE"
-      method="POST"
-    >
-      <button class="btn" type="submit">Delete this message 💀</button>
-    </form>
+  <p>From the words <%= monster.reciever.name %>...</p>
+  <h1><%= monster.name %></h1>
+  <% monster.messages?.forEach(message => { %>
+    <p>
+      <%= message.letter %> - <%= message.giver.name %>
+      <% if (message.giver._id.equals(user?.profile._id)) { %>
+        <a href="/monsters/<%= monster._id %>/edit">
+          <button class="btn">Edit this Monster</button>
+        </a>
+        <form action="/monsters/<%= monster._id %>?_method=DELETE" method="POST">
+          <button>Delete</button>
+        </form>
   <% } %>
 </section>
 
