@@ -4,7 +4,7 @@ function index(req, res) {
   Post.find({})
   .then(posts => {
     res.render('posts/index', {
-      title: 'monsters',
+      title: 'All the Monster Moments!',
       posts
     })
   })
@@ -32,7 +32,7 @@ function show(req, res) {
   .populate('replies.replier')
   .then(post => {
     res.render('posts/show', {
-      title: "show monsters",
+      title: "Monster Moment!",
       post
     })
   })
@@ -48,7 +48,7 @@ function edit(req, res) {
   .then(post => {
     res.render('posts/edit', {
       post,
-      title: 'edit 🌮'
+      title: 'Edit Monster Moment!'
     })
   })
   .catch(err => {
@@ -148,7 +148,7 @@ function editReply(req, res) {
       res.render('posts/editReply', {
         post, 
         reply: replyDoc,
-        title: 'Update Reply'
+        title: 'Update Sent Out Support!'
       })
     } else {
       throw new Error('🚫 Prohibited by The Order of the Motivation and Encouragement of Amazing Humanoids Society and Sanctuary 🚫')
