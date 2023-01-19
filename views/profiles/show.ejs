@@ -11,71 +11,43 @@
   </div>
   <h1>It's <%= isSelf ? "you" : profile.name %>!</h1>
   <% if (isSelf)  {%> 
-    <h2>Add a monster!</h2>
-    <form action="/profiles/<%= profile._id %>/monsters" method="POST">
+    <h2>Add a messenger!</h2>
+    <form action="/profiles/<%= profile._id %>/messengers" method="POST">
       <label>
         Name: 
         <input type="text" name="name" autocomplete="off">
       </label>
-      <label>
-        Breed: 
-        <input type="text" name="breed" autocomplete="off">
-      </label>
-      <button type="submit">Add Monster</button>
+      <button type="submit">Add Messenger</button>
     </form>
     
   <% } %>
-  <% if (profile.monsters.length)  {%>
+  <% if (profile.messengers.length)  {%>
     <h2>
-      <%= isSelf ? "You have" : `${profile.name} has` %> monsters! Here they are!
+      <%= isSelf ? "You have" : `${profile.name} has` %> messengers! Here they are!
     </h2>
-    <% profile.monsters.forEach(monster => { %>
-      <!-- <h3>
-        <%= getRandomMonster() %> 
-        <%= monster.name %> is a <label for="monster-select">Choose:</label>
+    <% profile.messengers.forEach(messenger => { %>
+      <h3>
+        <%= getRandomMessenger() %> 
+        <%= messenger.name %> 
+
         <select name="monster" id="monster-select">
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-          <option value="4">Four</option>
-          <option value="5" selected>Five</option>
-        </select> -->
         <% if (isSelf) { %> 
           <form 
-            action="/profiles/monsters/<%= monster._id %>?_method=DELETE" 
+            action="/profiles/messengers/<%= messenger._id %>?_method=DELETE" 
             method="POST"
             style="display: inline-block;"
           >
-          <!-- <button onClick={fetchNewImage}>Get new image</button>
-          <div style={{ margin: 12 }}>
-            <img src={public/assets/images/emote-alien4.png,public/assets/images/emote-annie4.png, } height="400" width="400" />
-          </div> -->
+          <button type="submit"> Free <%= messenger.name %></button>
+          </form>
+          </div>
           <button type="submit"> Free <%= monster.name %></button>
           </form>
-          <section>
-  <h1>Edit the Monster! </h1>
-  <form 
-    action="/monsters/<%= monster._id %>?_method="PUT""
-    method="POST"
-  >
-    <label>
-      Name: 
-      <input 
-        type="text"
-        name="name" 
-        value="<%= monster.name %>" 
-        autocomplete="off"
-      >
-    </label>
-    <button type="submit">Edit the Monster</button>
-  </form>
-</section>
-        <% } %>
+          <% } %>
       </h3>
     <% }) %>
   <% } else { %>
     <h2>
-      <%= isSelf ? "You don't" : `${profile.name} doesn't` %> have any monsters. Send them one now :)!
+      <%= isSelf ? "You don't" : `${profile.name} doesn't` %> have any messengers.
     </h2> 
   <% } %>
 </main>
