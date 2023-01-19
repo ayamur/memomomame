@@ -95,12 +95,10 @@ function deletePost(req, res) {
 }
 
 function addReply(req, res) {
-  // Find the post to push the replies to
   Post.findById(req.params.id)
   .then(post => {
-    // add the logged in user's profile _id to req.body before pushing into the array
     req.body.replier = req.user.profile._id
-    post.replies.push(req.body)
+    post.replies.unshift(req.body)
     post.save()
     .then(()=> {
       res.redirect(`/posts/${post._id}`)

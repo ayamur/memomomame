@@ -38,7 +38,7 @@ function show(req, res) {
 function createQuote(req, res) {
   Profile.findById(req.user.profile._id)
   .then(profile => {
-    profile.quotes.push(req.body)
+    profile.quotes.unshift(req.body)
     profile.save()
     .then(() => {
       res.redirect(`/profiles/${req.user.profile._id}`)
@@ -52,6 +52,14 @@ function createQuote(req, res) {
     console.log(err)
     res.redirect(`/profiles/${req.user.profile._id}`)
   })
+}
+
+function editQuote(req,res) {
+
+}
+
+function updateQuote(req, res) {
+  
 }
 
 function deleteQuote(req, res) {
@@ -73,5 +81,7 @@ export {
   index,
   show,
   createQuote,
+  editQuote,
+  updateQuote,
   deleteQuote
 }

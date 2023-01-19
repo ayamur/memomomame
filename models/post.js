@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const replySchema = new Schema({
+  content: String,
   support: String,
   replier: { type: Schema.Types.ObjectId, ref: "Profile"},
 })

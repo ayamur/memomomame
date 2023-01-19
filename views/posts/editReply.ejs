@@ -1,6 +1,8 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
+<div><a href="/posts/"><button>Back</button></a>
+</div>
 <section>
   <h1>Update Your Support!</h1>
   <form 
@@ -13,9 +15,9 @@
         cols="30"
         rows="5" 
         type="text"
-        name="support" 
+        name="content" 
         autocomplete="off"
-      ><%= reply.support %></textarea>
+      ><%= reply.content %></textarea>
     </label>
     <button type="submit">✨ Update Support ✨</button>
   </form>

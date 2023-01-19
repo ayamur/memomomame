@@ -17,7 +17,7 @@
     </p> 
   <% }) %>
   <form action="/posts/<%= post._id %>/replies" method="POST">
-    <textarea name="support"></textarea><br>
+    <textarea name="content"></textarea><br>
     <button>🆘 Send Out Support 🆘</button>
   </form>
   <% if (post.owner.equals(user?.profile._id)) { %>
