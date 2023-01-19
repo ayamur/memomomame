@@ -8,8 +8,7 @@ const replySchema = new Schema({
 })
 
 const postSchema = new Schema({
-  name: String,
-  sos: Boolean,
+  moment: String,
   owner: {type: Schema.Types.ObjectId, ref: "Profile"},
   replies: [replySchema]
 }, {

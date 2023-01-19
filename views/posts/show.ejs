@@ -2,43 +2,31 @@
 <%- include('../partials/nav') %>
 
 <section>
-  <p>From the kitchen of <%= post.owner.name %>...</p>
-  <h1><%= post.name %></h1>
-  <h2>This post is <%= post.sos ? 'sos! 😋' : 'not sos! 😫' %></h2>
+  <h1><%= post.moment %></h1>
   <% post.replies?.forEach(reply => { %>
     <p>
       <%= reply.content %> - <%= reply.replier.name %>
       <% if (reply.replier._id.equals(user?.profile._id)) { %>
         <form action="/posts/<%= post._id %>/replies/<%= reply._id %>?_method=DELETE" method="POST">
-          <button>Delete</button>
+          <button>💀 Delete Support 💀</button>
         </form>
-        <a href="/posts/<%= post._id %>/replies/<%= reply._id %>/edit" class="btn">Update</a>
+        <a href="/posts/<%= post._id %>/replies/<%= reply._id %>/edit" class="btn">✨ Update Support ✨</a>
       <% } %> 
     </p> 
   <% }) %>
   <form action="/posts/<%= post._id %>/replies" method="POST">
-    <textarea name="content"></textarea><br>
-    <button>Add Reply</button>
+    <textarea name="support"></textarea><br>
+    <button>🆘 Send Out Support 🆘</button>
   </form>
-  <% if (user) { %>
-    <form 
-      action="/posts/<%= post._id %>/sos-choice?_method=PATCH"
-      method="POST"
-    >
-      <button class="btn" type="submit">
-        Make post <%= post.sos ? 'not sos 🌮🥺' : 'sos 🌮🎉' %> 
-      </button>
-    </form>
-  <% } %>
   <% if (post.owner.equals(user?.profile._id)) { %>
     <a href="/posts/<%= post._id %>/edit">
-      <button class="btn">Edit this Post 🌮🚧</button>
+      <button class="btn">✨ Edit This Monster Moment ✨</button>
     </a>
     <form 
       action="/posts/<%= post._id %>?_method=DELETE"
       method="POST"
     >
-      <button class="btn" type="submit">Delete this post 🌮💀</button>
+      <button class="btn" type="submit">💀 Delete this Monster Moment 💀</button>
     </form>
   <% } %>
 </section>

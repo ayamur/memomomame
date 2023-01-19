@@ -2,7 +2,7 @@
 <%- include('../partials/nav') %>
 
 <section>
-  <h1>Edit your reply!</h1>
+  <h1>Update Your Support!</h1>
   <form 
     action="/posts/<%= post._id %>/replies/<%= reply._id %>?_method=PUT"
     method="POST"
@@ -17,7 +17,7 @@
         autocomplete="off"
       ><%= reply.support %></textarea>
     </label>
-    <button type="submit">Update Reply</button>
+    <button type="submit">✨ Update Support ✨</button>
   </form>
 </section>
 

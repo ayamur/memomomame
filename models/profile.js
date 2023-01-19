@@ -3,8 +3,8 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const quoteSchema = new Schema({
-  name: String,
-  location: Number,
+  phrase: String,
+  location: String,
   author: String
 }, {
   timestamps: true

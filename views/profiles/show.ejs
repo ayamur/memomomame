@@ -14,42 +14,43 @@
     <h2>Add a quote!</h2>
     <form action="/profiles/<%= profile._id %>/quotes" method="POST">
       <label>
-        Name: 
-        <input type="text" name="name" autocomplete="off">
+        Quote 
+        <input type="text" name="phrase" autocomplete="off">
       </label>
       <label>
-        Location: 
+        From: 
         <input type="number" name="location" autocomplete="off">
       </label>
       <label>
-        Author: 
+        By:
         <input type="text" name="author" autocomplete="off">
       </label>
-      <button type="submit">Add 🐱</button>
+      <br>
+      <button type="submit">🔶 Add Quote 🔶</button>
     </form>
   <% } %>
   <% if (profile.quotes.length)  {%>
     <h2>
-      <%= isSelf ? "You have" : `${profile.name} has` %> quotes! Here they are!
+      <%= isSelf ? "🔷 You have" : `🔷 ${profile.name} has` %> quotes! Here they are! 🔷
     </h2>
     <% profile.quotes.forEach(quote => { %>
       <h3>
         <%= getRandomQuote() %> 
-        <%= quote.name %> is a <%= quote.location %> year old <%= quote.author %>.
+        <%= quote.phrase %> from <%= quote.location %> by <%= quote.author %>.
         <% if (isSelf) { %> 
           <form 
             action="/profiles/quotes/<%= quote._id %>?_method=DELETE" 
             method="POST"
             style="display: inline-block;"
           >
-            <button type="submit">😸 Free <%= quote.name %></button>
+            <button type="submit">☮ Free <%= quote.name %> ☮</button>
           </form>
         <% } %>
       </h3>
     <% }) %>
   <% } else { %>
     <h2>
-      <%= isSelf ? "You don't" : `${profile.name} doesn't` %> have any quotes.
+      <%= isSelf ? "🫧 You don't" : `🫧 ${profile.name} doesn't` %> have any quotes yet. 🫧
     </h2> 
   <% } %>
 </main>

@@ -2,29 +2,22 @@
 <%- include('../partials/nav') %>
 
 <section>
-  <h1>Posts! 🌮🌮🌮</h1>
+  <h1>🎭 Monster Moments! 🎭</h1>
   <% if (user) { %>
-    <form action="/posts" method="POST">
-      <label>
-        Name:
-        <input type="text" name="name" autocomplete="off">
-      </label>
-      <label>
-        Support?
-        <input type="checkbox" name="support">
-      </label>
-      <button type="submit">Add 🌮</button>
+    <label for="moment">👾 Monster Moment: </label>
+    <form action="/posts/" method="POST">
+      <textarea name="moment" value="Monster Moment"></textarea> <br>
+      <br>
+      <button type="submit">👾 Share Monster Moment 👾</button>
     </form>
   <% } %>
-  <h2>All the Posts!</h2>
+  <h2>🎭 You're Not Alone! 🎭</h2>
 	<ul>
   <% posts.forEach(post => { %>
     <li>
-      🌮 
-      <a href="/posts/<%= post._id %>"><%= post.name %></a> is <%= post.support ? 'support' : 'not support' %>
+      <a href="/posts/<%= post._id %>"><%= post.moment %></a> 👾 
     </li>
   <% }) %>
   </ul>
 </section>
-
 <%- include('../partials/footer') %>

@@ -4,7 +4,7 @@ function index(req, res) {
   Post.find({})
   .then(posts => {
     res.render('posts/index', {
-      title: '🌮',
+      title: 'monsters',
       posts
     })
   })
@@ -15,7 +15,6 @@ function index(req, res) {
 }
 
 function create(req, res) {
-  req.body.sos = !!req.body.sos
   req.body.owner = req.user.profile._id
   Post.create(req.body)
   .then(post => {
@@ -33,7 +32,7 @@ function show(req, res) {
   .populate('replies.replier')
   .then(post => {
     res.render('posts/show', {
-      title: "🌮 show",
+      title: "show monsters",
       post
     })
   })
@@ -43,24 +42,6 @@ function show(req, res) {
   })
 }
 
-function sosChoice(req, res) {
-  // find the post
-  Post.findById(req.params.id)
-  .then(post => {
-    // flip the sos
-    post.sos = !post.sos
-    // save the post
-    post.save()
-    .then(() => {
-      // redirect
-      res.redirect(`/posts/${post._id}`)
-    })
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect('/posts')
-  })
-}
 
 function edit(req, res) {
   Post.findById(req.params.id)
@@ -80,8 +61,8 @@ function update(req, res) {
   Post.findById(req.params.id)
   .then(post => {
     if (post.owner.equals(req.user.profile._id)) {
-      req.body.sos = !!req.body.sos
       post.updateOne(req.body)
+      post.save()
       .then(()=> {
         res.redirect(`/posts/${post._id}`)
       })
@@ -203,7 +184,6 @@ export {
   index,
   create,
   show,
-  sosChoice,
   edit,
   update,
   deletePost as delete,

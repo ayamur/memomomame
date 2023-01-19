@@ -2,29 +2,16 @@
 <%- include('../partials/nav') %>
 
 <section>
-  <h1>Edit the post! 🌮</h1>
+  <h1>✨ Edit the Monster! ✨</h1>
   <form 
     action="/posts/<%= post._id %>?_method=PUT"
     method="POST"
   >
     <label>
-      Name: 
-      <input 
-        type="text"
-        name="name" 
-        value="<%= post.name %>" 
-        autocomplete="off"
-      >
+      Monster Moment: 
+      <textarea name="moment" value="<%= post.moment %>" ></textarea>
     </label>
-    <label>
-      SOS?
-      <input 
-        type="checkbox" 
-        name="sos" 
-        <%= post.sos ? "checked" : "" %> 
-      >
-    </label>
-    <button type="submit">Edit the 🌮</button>
+    <button type="submit">✨ Complete Changes ✨</button>
   </form>
 </section>
 
