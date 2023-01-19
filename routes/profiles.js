@@ -4,18 +4,10 @@ import * as profilesCtrl from '../controllers/profiles.js'
 
 const router = Router()
 
-
 router.get('/', isLoggedIn, profilesCtrl.index)
-
 router.get('/:id', isLoggedIn, profilesCtrl.show)
-
-router.get('/:id/edit', isLoggedIn, profilesCtrl.edit)
-
-router.put('/profiles/:id', isLoggedIn, profilesCtrl.update)
-
-router.post('/:id/messengers', isLoggedIn, profilesCtrl.createMessenger)
-
-router.delete('/messengers/:id', isLoggedIn, profilesCtrl.deleteMessenger)
+router.post('/:id/quotes', isLoggedIn, profilesCtrl.createQuote)
+router.delete('/quotes/:id', isLoggedIn, profilesCtrl.deleteQuote)
 
 export {
   router
