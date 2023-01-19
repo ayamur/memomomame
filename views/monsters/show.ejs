@@ -8,27 +8,28 @@
     <p>
       <%= message.letter %> - <%= message.giver.name %>
       <% if (message.giver._id.equals(user?.profile._id)) { %>
+        <a href="/monsters/<%= monster._id %>/messages/<%= message._id %>/edit" class="btn"><br>update s.o.s</a>
         <form action="/monsters/<%= monster._id %>/messages/<%= message._id %>?_method=DELETE" method="POST">
-          <button>Delete</button>
+          <button>delete s.o.s </button>
         </form>
-        <a href="/monsters/<%= monster._id %>/messages/<%= message._id %>/edit" class="btn">Update</a>
       <% } %> 
     </p> 
   <% }) %>
-  <form action="/monsters/<%= monster._id %>/messages" method="POST">
-    <textarea name="letter"></textarea><br>
-    <button>Add Message</button>
-  </form>
   <% if (monster.reciever.equals(user?.profile._id)) { %>
     <a href="/monsters/<%= monster._id %>/edit">
-      <button class="btn">Edit this Monster</button>
+      <button class="btn">Edit this Monsterous Moment!</button>
     </a>
     <form 
-      action="/monsters/<%= monster_id %>?_method=DELETE"
-      method="POST"
+    action="/monsters/<%= monster._id %>?_method=DELETE"
+    method="POST"
     >
-      <button class="btn" type="submit">Delete this monster</button>
-    </form>
+    <button class="btn" type="submit">Delete this Monstrous Moment!</button>
+  </form>
+  <br>
+  <form action="/monsters/<%= monster._id %>/messages" method="POST">
+    <textarea name="letter"></textarea><br>
+    <button>S.O.S! Send Out Support!</button>
+  </form>
   <% } %>
 </section>
 

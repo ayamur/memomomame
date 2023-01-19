@@ -29,8 +29,8 @@
       <h3>
         <%= getRandomMessenger() %> 
         <%= messenger.name %> 
+        <%= getRandomMessenger() %> 
 
-        <select name="monster" id="monster-select">
         <% if (isSelf) { %> 
           <form 
             action="/profiles/messengers/<%= messenger._id %>?_method=DELETE" 
@@ -40,8 +40,6 @@
           <button type="submit"> Free <%= messenger.name %></button>
           </form>
           </div>
-          <button type="submit"> Free <%= monster.name %></button>
-          </form>
           <% } %>
       </h3>
     <% }) %>

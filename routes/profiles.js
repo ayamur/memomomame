@@ -11,9 +11,9 @@ router.get('/:id', isLoggedIn, profilesCtrl.show)
 
 router.get('/:id/edit', isLoggedIn, profilesCtrl.edit)
 
-router.post('/profiles/:id/messengers', isLoggedIn, profilesCtrl.createMessenger)
+router.put('/profiles/:id', isLoggedIn, profilesCtrl.update)
 
-router.put('/profiles/messengers/:id', isLoggedIn, profilesCtrl.update)
+router.post('/:id/messengers', isLoggedIn, profilesCtrl.createMessenger)
 
 router.delete('/messengers/:id', isLoggedIn, profilesCtrl.deleteMessenger)
 
