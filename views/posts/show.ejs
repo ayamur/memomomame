@@ -1,6 +1,8 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
+<div><a href="/posts/"><button>Back</button></a>
+</div>
 <section>
   <h1><%= post.moment %></h1>
   <% post.replies?.forEach(reply => { %>

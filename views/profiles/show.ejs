@@ -19,7 +19,7 @@
       </label>
       <label>
         From: 
-        <input type="number" name="location" autocomplete="off">
+        <input type="text" name="location" autocomplete="off">
       </label>
       <label>
         By:
@@ -37,13 +37,14 @@
       <h3>
         <%= getRandomQuote() %> 
         <%= quote.phrase %> from <%= quote.location %> by <%= quote.author %>.
+        <%= getRandomQuote() %> 
         <% if (isSelf) { %> 
           <form 
             action="/profiles/quotes/<%= quote._id %>?_method=DELETE" 
             method="POST"
             style="display: inline-block;"
           >
-            <button type="submit">☮ Free <%= quote.name %> ☮</button>
+            <button type="submit"> ❌ Remove <%= quote.name %> ❌</button>
           </form>
         <% } %>
       </h3>
