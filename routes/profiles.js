@@ -11,11 +11,11 @@ router.get('/:id', isLoggedIn, profilesCtrl.show)
 
 router.get('/:id/edit', isLoggedIn, profilesCtrl.edit)
 
-router.post('/profiles/:id/monsters', isLoggedIn, profilesCtrl.createMonster)
+router.post('/profiles/:id/messengers', isLoggedIn, profilesCtrl.createMessenger)
 
-router.put('/profiles/monsters/:id', isLoggedIn, profilesCtrl.update)
+router.put('/profiles/messengers/:id', isLoggedIn, profilesCtrl.update)
 
-router.delete('/profiles/monsters/:id', isLoggedIn, profilesCtrl.deleteMonster)
+router.delete('/messengers/:id', isLoggedIn, profilesCtrl.deleteMessenger)
 
 export {
   router
