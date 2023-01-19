@@ -2,9 +2,9 @@
 <%- include('../partials/nav') %>
 
 <section>
-  <h1>Edit the Message! </h1>
+  <h1>Edit the Monster! </h1>
   <form 
-    action="/messages/<%= message._id %>?_method=PUT"
+    action="/monsters/<%= monster._id %>?_method=PUT"
     method="POST"
   >
     <label>
@@ -12,7 +12,7 @@
       <input 
         type="text"
         name="name" 
-        value="<%= message.name %>" 
+        value="<%= monster.name %>" 
         autocomplete="off"
       >
     </label>
