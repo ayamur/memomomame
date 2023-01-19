@@ -3,9 +3,8 @@ import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 
-const monsterSchema = new Schema({
+const messengerSchema = new Schema({
   name: String,
-  breed: String,
   message: {type: Schema.Types.ObjectId, ref: "Message"}
 }, {
   timestamps: true
@@ -14,7 +13,7 @@ const monsterSchema = new Schema({
 const profileSchema = new Schema({
   name: String,
   avatar: String,
-  monsters: [monsterSchema]
+  messengers: [messengerSchema]
 }, {
   timestamps: true
 })
