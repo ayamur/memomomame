@@ -2,24 +2,23 @@
 <%- include('../partials/nav') %>
 
 <section>
-  <h1>Edit your message!</h1>
+  <h1>Edit your reply!</h1>
   <form 
-    action="/monsters/<%= monster._id %>/messages/<%= message._id %>?_method=PUT"
+    action="/posts/<%= post._id %>/replies/<%= reply._id %>?_method=PUT"
     method="POST"
   >
     <label>
-      Letter: 
+      Support: 
       <textarea
         cols="30"
         rows="5" 
         type="text"
-        name="letter" 
+        name="support" 
         autocomplete="off"
-      ><%= message.letter %></textarea>
+      ><%= reply.support %></textarea>
     </label>
-    <button type="submit">Update Message</button>
+    <button type="submit">Update Reply</button>
   </form>
 </section>
 
 <%- include('../partials/footer') %>
-

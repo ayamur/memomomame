@@ -1,0 +1,30 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+  <h1>Posts! 🌮🌮🌮</h1>
+  <% if (user) { %>
+    <form action="/posts" method="POST">
+      <label>
+        Name:
+        <input type="text" name="name" autocomplete="off">
+      </label>
+      <label>
+        Support?
+        <input type="checkbox" name="support">
+      </label>
+      <button type="submit">Add 🌮</button>
+    </form>
+  <% } %>
+  <h2>All the Posts!</h2>
+	<ul>
+  <% posts.forEach(post => { %>
+    <li>
+      🌮 
+      <a href="/posts/<%= post._id %>"><%= post.name %></a> is <%= post.support ? 'support' : 'not support' %>
+    </li>
+  <% }) %>
+  </ul>
+</section>
+
+<%- include('../partials/footer') %>
