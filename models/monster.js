@@ -1,17 +1,22 @@
-// import mongoose from 'mongoose'
+import mongoose from 'mongoose'
 
-// const Schema = mongoose.Schema
+const Schema = mongoose.Schema
 
-// const monsterSchema = new Schema({
-//   name: String,
-//   breed: String,
-//   message: {type: Schema.Types.ObjectId, ref: "Message"}
-// }, {
-//   timestamps: true
-// })
+const messageFromSchema = new Schema({
+  message: String,
+  giver: { type: Schema.Types.ObjectId, ref: "Profile"},
+})
 
-// const Monster = mongoose.model('Monster', monsterSchema)
+const messageSchema = new Schema({
+  name: String,
+  reciever: {type: Schema.Types.ObjectId, ref: "Profile"},
+  messages: [messageFromSchema]
+}, {
+  timestamps: true
+})
 
-// export {
-//   Monster
-// }
+const Message = mongoose.model('Message', messageSchema)
+
+export {
+  Message
+}
