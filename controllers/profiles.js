@@ -86,7 +86,7 @@ function edit(req, res) {
 function update(req, res) {
   Profile.findById(req.params.id)
   .then(profile => {
-    if (profile.owner.equals(req.user.profile._id)) {
+    if (profile.reciever.equals(req.user.profile._id)) {
       profile.updateOne(req.body)
       .then(()=> {
         res.redirect(`/profiles/${profile._id}`)

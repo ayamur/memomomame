@@ -15,7 +15,7 @@ function index(req, res) {
 }
 
 function create(req, res) {
-  req.body.owner = req.user.profile._id
+  req.body.reciever = req.user.profile._id
   Monster.create(req.body)
   req.body.giver = req.user.profile._id
   Monster.create(req.body)
