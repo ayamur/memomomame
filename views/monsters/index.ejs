@@ -2,21 +2,21 @@
 <%- include('../partials/nav') %>
 
 <section>
-  <h1>Messages!</h1>
+  <h1>Monsters!</h1>
   <% if (user) { %>
-    <form action="/messages" method="POST">
+    <form action="/monsters" method="POST">
       <label>
         Name:
         <input type="text" name="name" autocomplete="off">
       </label>
-      <button type="submit">Add Message</button>
+      <button type="submit">Add Monster</button>
     </form>
   <% } %>
-  <h2>All the Messages!</h2>
+  <h2>All the Monsters!</h2>
   <ul>
-    <% messages.forEach(message => { %>
+    <% monsters.forEach(monster => { %>
       <li> 
-        <a href="/messages/<%= message._id %>"><%= message.name %>
+        <a href="/monsters/<%= monster._id %>"><%= monster.name %>
           <% }) %>
         </a> 
       </li>
