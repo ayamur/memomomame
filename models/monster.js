@@ -15,7 +15,7 @@ const monsterSchema = new Schema({
   timestamps: true
 })
 
-const Message = mongoose.model('Monster', monsterSchema)
+const Monster = mongoose.model('Monster', monsterSchema)
 
 export {
   Monster

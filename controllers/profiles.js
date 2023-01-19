@@ -20,12 +20,12 @@ function show(req, res) {
   .then(profile => {
     const isSelf = profile._id.equals(req.user.profile._id)
     res.render("profiles/show", {
-      title: `monsters ${profile.name}'s profile`,
+      title: `messengers ${profile.name}'s profile`,
       profile,
       isSelf,
-      getRandomMonster: () => {
-        // const monsters = ["/assets/images/emote-alien4.png", "/assets/images/emote-annie4.png", "public/assets/images/emote-apsycho1.png", "public/assets/images/emote-bela2.png", "/assets/images/emote-billyidol.png", "/public/assets/images/emote-bowie-ashes.png", "/assets/images/emote-dracula2.png", "/assets/images/emote-hellraiser.png"]
-        // return monsters[Math.floor(Math.random() * monsters.length)]
+      getRandomMessenger: () => {
+        const messengers = ["🥶", "😶‍🌫️", "🫠", "😵‍💫", "🤐", "🥴", "😈", "👿", "👹", "👺", "👻", "💀", "☠️", "👽", "👾", "🎃", "👿", "👹", "🙀", "👁", "🥷", "🦹‍♂️", "🧙‍♂️", "🧝‍♀️", "🧛", "🧟‍♀️", "🧞", "🧜‍♀️", "🧜‍♂️", "🧚‍♀️", "🧚", "🧌", "👥", "👓", "👩🏻‍🎤", "👨🏼‍🚀", "🧑🏽‍🎨", "🧜🏾", "🧚🏿‍♂️", "🦇", "🐯", "🐸", "🐺", "🦄", "🦋", "🕷", "🦂", "🐍", "🦎", "🦖", "🦕", "🐙", "🦑", "🦞", "🦀", "🐡", "🐳", "🦈", "🐊", "🦓", "🦧", "🦣", "🦒", "🦘", "🐏", "🦙", "🐐", "🦌", "🐕", "🐈‍⬛", "🦤", "🐇", "🦝", "🦦", "🦥", "🦔", "🐉", "🌵", "🌞", "🌛", "🌜", "☃️", "🤺", "🎭", "🛸", "🗿", "🩻", "🪬", "⚰️", "🧸", "🪆", "🪅", "📧", "💌", "📎", "☢️", "☣️", "👁‍🗨", "🃏", "𓀂", "𓀃", "𓀋", "𓀊", "𓀌", "𓀏", "𓀖", "𓀛", "🏴‍☠️", "🫧", "🪪", "( ͡👁️ ͜ʖ ͡👁️)", "¯\_( ͡👁️ ͜ʖ ͡👁️)_/¯", "¯\_( ͡👁️ ‿‿ ͡👁️)_/¯", "(👍 ͡👁️ ‿‿ ͡👁️)👍", "\( ͡👁️ ‿‿ ͡👁️)/", "\( ͡ಥ ‿‿ ͡ಥ)/", "\( ͡▀̿ ̿ ω ͡▀̿ ̿ )/", "\( ͡ಠ 益 ͡ಠ)/", "(╯ ͡° ෴͡° )╯┻━┻", "(✿ ͡° ‿っ͡° )", "(っ ͡◎ ‿っ͡◎ )っ🎔", "ᕙ( ͡◕ ‿っ͡◕ )ᕗ", "💪( ͡╥ ▿͡╥ ҂)", "✍( ͡❛ ⍙͡❛ )", "👋≧◉ᴥ◉≦", "(̶◉͛‿◉̶)", "(>‿◠)✌", "≧◉◡◉≦", "(͠≖ ͜ʖ͠≖)👌", "🏂", "🤖", "🥸", "🔥", "🌊", "🥏", "🕴", "🛞", "🪂", "🎑", "☠", "🖼", "✴", "🚼", "🛂",]
+        return messengers[Math.floor(Math.random() * messengers.length)]
       }
     })
   })
@@ -35,10 +35,10 @@ function show(req, res) {
   })
 }
 
-function createMonster(req, res) {
+function createMessenger(req, res) {
   Profile.findById(req.user.profile._id)
   .then(profile => {
-    profile.monsters.push(req.body)
+    profile.messengers.push(req.body)
     profile.save()
     .then(() => {
       res.redirect(`/profiles/${req.user.profile._id}`)
@@ -54,10 +54,10 @@ function createMonster(req, res) {
   })
 }
 
-function deleteMonster(req, res) {
+function deleteMessenger(req, res) {
   Profile.findById(req.user.profile._id)
   .then(profile => {
-    profile.monsters.remove({_id: req.params.id})
+    profile.messengers.remove({_id: req.params.id})
     profile.save()
     .then(()=> {
       res.redirect(`/profiles/${req.user.profile._id}`)
@@ -92,7 +92,7 @@ function update(req, res) {
         res.redirect(`/profiles/${profile._id}`)
       })
     } else {
-      throw new Error('🚫 Not authorized 🚫')
+      throw new Error('🚫 Prohibited by The Order of the Druidic Monstrous Creature Sanctuary 🚫')
     }
   })
   .catch(err => {

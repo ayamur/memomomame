@@ -189,7 +189,7 @@ export {
   show,
   edit,
   update,
-  deleteMessage as delete,
+  deleteMonster as delete,
   addMessage,
   deleteMessage,
   editMessage,
