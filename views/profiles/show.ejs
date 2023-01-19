@@ -11,41 +11,45 @@
   </div>
   <h1>It's <%= isSelf ? "you" : profile.name %>!</h1>
   <% if (isSelf)  {%> 
-    <h2>Add a messenger!</h2>
-    <form action="/profiles/<%= profile._id %>/messengers" method="POST">
+    <h2>Add a quote!</h2>
+    <form action="/profiles/<%= profile._id %>/quotes" method="POST">
       <label>
         Name: 
         <input type="text" name="name" autocomplete="off">
       </label>
-      <button type="submit">Add Messenger</button>
+      <label>
+        Location: 
+        <input type="number" name="location" autocomplete="off">
+      </label>
+      <label>
+        Author: 
+        <input type="text" name="author" autocomplete="off">
+      </label>
+      <button type="submit">Add 🐱</button>
     </form>
-    
   <% } %>
-  <% if (profile.messengers.length)  {%>
+  <% if (profile.quotes.length)  {%>
     <h2>
-      <%= isSelf ? "You have" : `${profile.name} has` %> messengers! Here they are!
+      <%= isSelf ? "You have" : `${profile.name} has` %> quotes! Here they are!
     </h2>
-    <% profile.messengers.forEach(messenger => { %>
+    <% profile.quotes.forEach(quote => { %>
       <h3>
-        <%= getRandomMessenger() %> 
-        <%= messenger.name %> 
-        <%= getRandomMessenger() %> 
-
+        <%= getRandomQuote() %> 
+        <%= quote.name %> is a <%= quote.location %> year old <%= quote.author %>.
         <% if (isSelf) { %> 
           <form 
-            action="/profiles/messengers/<%= messenger._id %>?_method=DELETE" 
+            action="/profiles/quotes/<%= quote._id %>?_method=DELETE" 
             method="POST"
             style="display: inline-block;"
           >
-          <button type="submit"> Free <%= messenger.name %></button>
+            <button type="submit">😸 Free <%= quote.name %></button>
           </form>
-          </div>
-          <% } %>
+        <% } %>
       </h3>
     <% }) %>
   <% } else { %>
     <h2>
-      <%= isSelf ? "You don't" : `${profile.name} doesn't` %> have any messengers.
+      <%= isSelf ? "You don't" : `${profile.name} doesn't` %> have any quotes.
     </h2> 
   <% } %>
 </main>
