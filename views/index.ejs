@@ -1,16 +1,14 @@
 <%- include('./partials/html-head') %>
-<%- include('./partials/nav') %>
+  <%- include('./partials/nav') %>
 
-<main>
-  <h1>Welcome! <%= user ? user.profile.name : "You Amazing Humanoid That Is You!" %></h1>
-  <% if (user?.profile.avatar) { %>
-    <div>
-      <img
-        src="<%= user.profile.avatar %>"
-        alt="<%= user.profile.name %> avatar"
-      />
-    </div>
-  <% } %>
-</main>
+    <main>
+      <h1>Welcome! <%= user ? user.profile.name : 'You Amazing Humanoid That Is You!'' %>
+      </h1>
+      <% if (user?.profile.avatar) { %>
+        <div>
+          <img src='<%= user.profile.avatar %>'' alt='<%= user.profile.name %> avatar' />
+        </div>
+        <% } %>
+    </main>
 
-<%- include('./partials/footer') %>
+    <%- include('./partials/footer') %>

@@ -16,7 +16,7 @@ import { passDataToView } from './middleware/middleware.js'
 import './config/database.js'
 
 // load passport
-import'./config/passport.js'
+import './config/passport.js'
 
 // import routes
 import { router as indexRouter } from './routes/index.js'

@@ -1,20 +1,17 @@
 <%- include('../partials/html-head') %>
-<%- include('../partials/nav') %>
+  <%- include('../partials/nav') %>
 
-<div><a href="/posts/"><button>Back</button></a>
-</div>
-<section>
-  <h1>✨ Edit the Monster! ✨</h1>
-  <form 
-    action="/posts/<%= post._id %>?_method=PUT"
-    method="POST"
-  >
-    <label>
-      Monster Moment: 
-      <textarea name="moment" value="<%= post.moment %>" ></textarea>
-    </label>
-    <button type="submit">✨ Complete Changes ✨</button>
-  </form>
-</section>
+    <div><a href='/posts/'><button>Back</button></a>
+    </div>
+    <section>
+      <h1>✨ Edit the Monster! ✨</h1>
+      <form action='/posts/<%= post._id %>?_method=PUT' method='POST'>
+        <label>
+          Monster Moment:
+          <textarea name='moment' value='<%= post.moment %>''></textarea>
+        </label>
+        <button type='submit'>✨ Complete Changes ✨</button>
+      </form>
+    </section>
 
-<%- include('../partials/footer') %>
+    <%- include('../partials/footer') %>

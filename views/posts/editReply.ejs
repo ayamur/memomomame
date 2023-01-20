@@ -1,26 +1,17 @@
 <%- include('../partials/html-head') %>
-<%- include('../partials/nav') %>
+  <%- include('../partials/nav') %>
 
-<div><a href="/posts/"><button>Back</button></a>
-</div>
-<section>
-  <h1>Update Your Support!</h1>
-  <form 
-    action="/posts/<%= post._id %>/replies/<%= reply._id %>?_method=PUT"
-    method="POST"
-  >
-    <label>
-      Support: 
-      <textarea
-        cols="30"
-        rows="5" 
-        type="text"
-        name="content" 
-        autocomplete="off"
-      ><%= reply.content %></textarea>
-    </label>
-    <button type="submit">✨ Update Support ✨</button>
-  </form>
-</section>
+    <div><a href='/posts/'><button>Back</button></a>
+    </div>
+    <section>
+      <h1>Update Your Support!</h1>
+      <form action='/posts/<%= post._id %>/replies/<%= reply._id %>?_method=PUT' method='POST'>
+        <label>
+          Support:
+          <textarea cols='30' rows='5' type='text' name='content' autocomplete='off'><%= reply.content %></textarea>
+        </label>
+        <button type='submit'>✨ Update Support ✨</button>
+      </form>
+    </section>
 
-<%- include('../partials/footer') %>
+    <%- include('../partials/footer') %>

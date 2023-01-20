@@ -1,23 +1,25 @@
 <%- include('../partials/html-head') %>
-<%- include('../partials/nav') %>
+  <%- include('../partials/nav') %>
 
-<section>
-  <h1>🎭 Monster Moments! 🎭</h1>
-  <% if (user) { %>
-    <label for="moment">👾 Share a Monster Moment Here: 👾 </label>
-    <form action="/posts/" method="POST">
-      <textarea name="moment" value="Monster Moment"></textarea> <br>
-      <br>
-      <button type="submit">👾 Add This Monster Moment 👾</button>
-    </form>
-  <% } %>
-  <h2>🌌 You're Not Alone! 🌠</h2>
-	<ul>
-  <% posts.forEach(post => { %>
-    <li>
-      <a href="/posts/<%= post._id %>"><%= post.moment %></a> 👾 
-    </li>
-  <% }) %>
-  </ul>
-</section>
-<%- include('../partials/footer') %>
+    <section>
+      <h1>🎭 Monster Moments! 🎭</h1>
+      <% if (user) { %>
+        <label for='moment'>👾 Share a Monster Moment Here: 👾 </label>
+        <form action='/posts/' method='POST'>
+          <textarea name='moment' value='Monster Moment'></textarea> <br>
+          <br>
+          <button type='submit'>👾 Add This Monster Moment 👾</button>
+        </form>
+        <% } %>
+          <h2>🌌 You're Not Alone! 🌠</h2>
+          <ul>
+            <% posts.forEach(post=> { %>
+              <li>
+                <a href='/posts/<%= post._id %>''>
+                  <%= post.moment %>
+                </a> 👾
+              </li>
+              <% }) %>
+          </ul>
+    </section>
+    <%- include('../partials/footer') %>

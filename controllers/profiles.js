@@ -1,5 +1,4 @@
-import { Post } from "../models/post.js"
-import { Profile } from "../models/profile.js"
+import { Profile } from '../models/profile.js'
 
 
 function index(req, res) {
@@ -7,7 +6,7 @@ function index(req, res) {
   .then(profiles => {
     res.render('profiles/index', {
       profiles,
-			title: "All Profiles!"
+			title: 'All Profiles!'
     })
   })
   .catch(err => {
@@ -32,7 +31,7 @@ function show(req, res) {
   })
   .catch((err) => {
     console.log(err)
-    res.redirect("/profiles")
+    res.redirect('/profiles')
   })
 }
 
