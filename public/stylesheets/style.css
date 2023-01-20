@@ -14,29 +14,98 @@ html {
 }
 
 body {
-  background-color: #1a1a1a;
-  color: #f6f6f6;
+  background-color: #23292F;
+  color: #23292f;
   margin: 0;
   font-family: 'Cute Font', cursive;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 nav {
-  background-color: #f6f6f6;
-  color: #1a1a1a;
+  color: #66101F;
+  background-color: #F1FFC4;
+  font-size: 25px;
+  grid-area: nav;
   display: flex;
-  align-items: center;
+  /* flex-direction: row; */
+  justify-content:flex-start;
   padding: 10px;
   min-height: 60px;
+  padding: 0 20px 0 30px;
+}
+
+nav > i {
+  width: 34px;
+  object-fit: contain;
+  margin-right: auto;
+}
+
+nav > a {
+  margin: 20px;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  color:  #66101F;
+}
+
+nav > a:visited {
+  color: #3E6990;
+}
+
+nav > a:hover {
+  color: #F4B393;
+  background-color: #23292F;
+}
+
+nav > a.active {
+  color:  #5a0d0a;
 }
 
 main {
-  display: flex;
+
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  margin: auto;
   font-family: 'Cute Font', cursive;
 }
 
-.right {
+/* .right {
   margin-left: auto;
+} */
+
+#github {
+  width: 100px;
+  text-align: center;
+  align-content: center;
+}
+
+.footer {
+  text-align: center;
+  justify-content: center;
+  align-self: flex-end;
+  border: lime thick dotted;
+  font-size: 20px;
+  font-weight:bold;
+  color: black;
+}
+
+.fancy {
+  display: inline-block;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: auto;
+  /* border: thick hotpink dotted; */
+  /* margin: 0 40px 0 0; */
+}
+
+.githublr {
+  margin-top: 40px;
+  justify-content: center;
+}
+
+.blurb {
+  font-size: 18px;
+  display: flex;
 }
