@@ -1,3 +1,4 @@
+import { Post } from "../models/post.js"
 import { Profile } from "../models/profile.js"
 
 
@@ -54,13 +55,6 @@ function createQuote(req, res) {
   })
 }
 
-function editQuote(req,res) {
-
-}
-
-function updateQuote(req, res) {
-  
-}
 
 function deleteQuote(req, res) {
   Profile.findById(req.user.profile._id)
@@ -81,7 +75,139 @@ export {
   index,
   show,
   createQuote,
-  editQuote,
-  updateQuote,
   deleteQuote
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//? Icebox Feature Freeze Code I was working on below!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//! Icebox Feature Freeze Code I was working on below!
+
+
+
+
+
+  // function editQuote(req,res) {
+  //   Profile.findById(req.params.profileId)
+  //   .then(profile => {
+  //     const quoteDoc = profile.quotes.id(req.params.commentId)
+  //     if (quoteDoc.quoter.equals(req.user.profile._id)) {
+  //       res.render('profiles/editQuote', {
+  //         profile, 
+  //         quote: quoteDoc,
+  //         title: 'Update Quote!'
+  //       })
+  //     } else {
+  //       throw new Error('🚫 Prohibited by The Order of the Motivation and Encouragement of Amazing Humanoids Society and Sanctuary 🚫')
+  //     }
+  //   })
+  // }
+  
+  
+  // function updateQuote(req, res) {
+  //   Profile.findById(req.params.postId)
+  //   .then(profile => {
+  //     const quoteDoc = profile.quotes.id
+  //     (req.params.quoteId)
+  //     if (quoteDoc.quoter.equals(req.user.profile._id)) {
+  //       quoteDoc.set(req.body)
+  //       profile.save()
+  //       .then(() => {
+  //         res.redirect(`/profiles/${profile._id}`)
+  //       })
+  //       .catch(err => {
+  //         console.log(err)
+  //         res.redirect('/profiles')
+  //       })
+  //     } else {
+  //       throw new Error('🚫 Prohibited by The Order of the Motivation and Encouragement of Amazing Humanoids Society and Sanctuary 🚫')
+  //     }
+  //   })
+  //   .catch(err => {
+  //     console.log(err)
+  //     res.redirect('/profiles')
+  //   })
+  // }
+  
+  // function editQuote(req, res) {
+  //   console.log("this is my edit quote function")
+  //   Profile.findById(req.params.id)
+  //   .then(profile => {
+  //     res.render('profiles/editQuote', {
+  //       profile,
+  //       title: 'Update Quote'
+  //     })
+  //   })
+  //   .catch(err => {
+  //     console.log(err)
+  //     res.redirect(`/profiles/${req.user.profile._id}`)
+  //   })
+  // }
+  
+  // function editQuote(req, res) {
+  //   console.log("this is my edit quote function")
+  //   Profile.findById(req.params.id)
+  //   .then(profile => {
+  //     res.render('____', {
+  //       profile,
+  //       title: 'Update Quote'
+  //     })
+  //   })
+  //   .catch(err => {
+  //     console.log(err)
+  //     res.redirect(`/profiles/${req.user.profile._id}`)
+  //   })
+  // }
+  
+  // function updateQuote(req, res) {
+  //   Profile.findById(req.params.id)
+  //   .then(quote => {
+  //     if (quote.quoter.equals(req.user.profile._id)) {
+  //       profile.updateOne(req.body)
+  //       .then(()=> {
+  //         res.redirect(`/profiles/editQuote`)
+  //       })
+  //     } else {
+  //       throw new Error('🚫 Not authorized 🚫')
+  //     }
+  //   })
+  //   .catch(err => {
+  //     console.log(err)
+  //     res.redirect('/profiles')
+  //   })
+  // }

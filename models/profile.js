@@ -5,7 +5,7 @@ const Schema = mongoose.Schema
 const quoteSchema = new Schema({
   phrase: String,
   location: String,
-  author: String
+  author: String,
 }, {
   timestamps: true
 })
@@ -13,7 +13,8 @@ const quoteSchema = new Schema({
 const profileSchema = new Schema({
   name: String,
   avatar: String,
-  quotes: [quoteSchema]
+  quotes: [quoteSchema],
+  quoter: { type: Schema.Types.ObjectId, ref: 'Profile' }
 }, {
   timestamps: true
 })

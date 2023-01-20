@@ -28,32 +28,77 @@
       <br>
       <button type="submit">🔶 Add Quote 🔶</button>
     </form>
-  <% } %>
-  <% if (profile.quotes.length)  {%>
-    <h2>
-      <%= isSelf ? "🔷 You have" : `🔷 ${profile.name} has` %> quotes! Here they are! 🔷
-    </h2>
-    <% profile.quotes.forEach(quote => { %>
+    <% } %>
+      <h1><%= profile.quote %></h1>
+    <% if (profile.quotes.length)  {%>
+      <h2>
+        <%= isSelf ? "🔷 You have" : `🔷 ${profile.name} has` %> quotes! Here they are! 🔷
+      </h2>
       <h3>
-        <%= getRandomQuote() %> 
-        <%= quote.phrase %> from <%= quote.location %> by <%= quote.author %>.
-        <%= getRandomQuote() %> 
-        <% if (isSelf) { %> 
-          <form 
+        <% profile.quotes?.forEach(quote => { %>
+          <%= getRandomQuote() %> 
+          <%= quote.phrase %> from
+          <%= quote.location %> by 
+          <%= quote.author %>
+          <%= getRandomQuote() %> 
+          <% if (isSelf) { %> 
+            <form 
             action="/profiles/quotes/<%= quote._id %>?_method=DELETE" 
             method="POST"
             style="display: inline-block;"
-          >
-            <button type="submit"> ❌ Remove <%= quote.name %> ❌</button>
-          </form>
-        <% } %>
-      </h3>
-    <% }) %>
+            >
+          <button type="submit"> ❌ Remove ❌</button>
+          <% } %>
+        </h3>
+        <% }) %>
   <% } else { %>
     <h2>
       <%= isSelf ? "🫧 You don't" : `🫧 ${profile.name} doesn't` %> have any quotes yet. 🫧
     </h2> 
-  <% } %>
-</main>
+    <% } %>
+  </main>
 
 <%- include('../partials/footer') %>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ?Icebox Feature Freeze Code I was working on! -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- !Icebox Feature Freeze Code I was working on! -->
+
+
+
+
+
+
+
+
+<!-- 
+</form>
+<a href="/profiles/ -->
+<!-- //<%= profile._id %> -->
+<!-- /quotes/ -->
+<!-- //<%= quote._id %> -->
+<!-- /edit"><button type="submit">
+  ⭕ Update ⭕</button></a> -->

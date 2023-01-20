@@ -6,9 +6,44 @@ const router = Router()
 
 router.get('/', isLoggedIn, profilesCtrl.index)
 router.get('/:id', isLoggedIn, profilesCtrl.show)
-router.post('/:id/quotes', isLoggedIn, profilesCtrl.createQuote)
 router.delete('/quotes/:id', isLoggedIn, profilesCtrl.deleteQuote)
+router.post('/:id/quotes', isLoggedIn, profilesCtrl.createQuote)
 
 export {
   router
 }
+
+
+
+
+
+
+
+
+
+
+//? Icebox Feature Freeze Code I was working on below!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//! Icebox Feature Freeze Code I was working on below!
+
+
+
+
+
+// router.get('/:profileId/quotes/:quoteId/edit', isLoggedIn, profilesCtrl.editQuote)
+// router.put('/:profileId/quotes/:quoteId', isLoggedIn, profilesCtrl.updateQuote)
