@@ -1,3 +1,5 @@
+
+
 html {
   box-sizing: border-box;
 }
@@ -15,11 +17,13 @@ html {
 
 body {
   background-color: #23292F;
-  color: #23292f;
-  margin: 0;
+  color: #F4B393;
+  justify-content: center;
+  text-align: center;
   font-family: 'Cute Font', cursive;
-  min-height: 100vh;
+  font-size: 20px;
   display: flex;
+  align-items: center;
   flex-direction: column;
 }
 
@@ -29,7 +33,6 @@ nav {
   font-size: 25px;
   grid-area: nav;
   display: flex;
-  /* flex-direction: row; */
   justify-content:flex-start;
   padding: 10px;
   min-height: 60px;
@@ -51,7 +54,7 @@ nav > a {
 }
 
 nav > a:visited {
-  color: #3E6990;
+  color: #66101F;
 }
 
 nav > a:hover {
@@ -64,48 +67,142 @@ nav > a.active {
 }
 
 main {
-
   align-items: center;
   justify-content: center;
   margin: auto;
+  font-size: 15px;
+  text-align: center;
   font-family: 'Cute Font', cursive;
 }
 
-/* .right {
-  margin-left: auto;
-} */
-
 #github {
-  width: 100px;
+  width: 50px;
   text-align: center;
   align-content: center;
-}
-
-.footer {
-  text-align: center;
-  justify-content: center;
-  align-self: flex-end;
-  border: lime thick dotted;
-  font-size: 20px;
-  font-weight:bold;
-  color: black;
 }
 
 .fancy {
   display: inline-block;
   justify-content: center;
   flex-direction: row;
-  margin-top: auto;
-  /* border: thick hotpink dotted; */
-  /* margin: 0 40px 0 0; */
+  margin: 0 40px 0 0;
+  margin: auto;
 }
 
 .githublr {
-  margin-top: 40px;
   justify-content: center;
 }
 
 .blurb {
-  font-size: 18px;
+  font-size: 15px;
   display: flex;
+}
+
+.google {
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+}
+
+.footer #button{
+	width:35px;
+	height:35px;
+	border: #66101F 12px solid;
+	border-radius:35px;
+	margin:0 auto;
+	position:relative;
+	-webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.footer #button:hover{
+	width:35px;
+	height:35px;
+	border: #ff002b 12px solid;
+	-webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+	position:relative;
+}
+.footer {
+  color: #66101F;
+	bottom:0;
+	left:0;
+	position:fixed;
+    width: 100%;
+    height: 2em;
+    overflow:hidden;
+    margin:0 auto;
+	-webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+	z-index:999;
+}
+.footer:hover {
+	-webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+	height: 10em;
+}
+.footer #container{
+	margin-top:5px;
+	width:100%;
+height:100%;
+  position:relative;
+  top:0;
+  left:0;
+	background: #F1FFC4;
+}
+.footer #cont{
+  position:relative;
+  top:-45px;
+  right:190px;
+	width:150px;
+	height:auto;
+	margin:0 auto;
+}
+.footer_center{
+	width:500px;
+	float:left;
+  text-align:center;
+}
+.footer h4{
+	font-size: 20px;
+	font-weight: 100;
+	margin-top:70px;
+	margin-left:40px;
+}
+.navbar {
+  width: 100%;
+  background-color: #F1FFC4;
+  overflow: hidden;
+}
+.navbar a {
+  float: right;
+  padding: 12px;
+  color: #66101F;
+  text-decoration: none;
+  font-size: 20px;
+}
+.navbar a:hover {
+  background-color: #23292F;
+}
+
+.active {
+  background-color: #ff002b;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
 }

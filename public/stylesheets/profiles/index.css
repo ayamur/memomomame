@@ -1,8 +1,10 @@
+
 .main {
   display: flex;
   justify-content: center;
   font-family: 'Cute Font', cursive;
 }
+
 
 .card-container {
   display: flex;

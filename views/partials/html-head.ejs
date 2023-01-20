@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang='en'>
-
 <head>
+  <% if (!user) { %>
+    <script defer src='https://accounts.google.com/gsi/client' class='google'>
+    </script>
+    <% } %>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cute+Font&display=swap');
   </style>
