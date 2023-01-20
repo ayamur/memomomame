@@ -1,7 +1,7 @@
 <%- include('../partials/html-head') %>
   <%- include('../partials/nav') %>
 
-    <div><a href='/posts/''><button>Back</button></a>
+    <div><a href='/posts/''><button class=' btn'>⬅Back⬅</button></a>
     </div>
     <section>
       <h1>
@@ -12,7 +12,7 @@
           <%= reply.content %> - <%= reply.replier.name %>
               <% if (reply.replier._id.equals(user?.profile._id)) { %>
                 <form action='/posts/<%= post._id %>/replies/<%= reply._id %>?_method=DELETE' method='POST'>
-                  <button>💀 Delete Support 💀</button>
+                  <button class='btn'>💀 Delete Support 💀</button>
                 </form>
                 <a href='/posts/<%= post._id %>/replies/<%= reply._id %>/edit' class='btn'>✨ Update Support ✨</a>
                 <% } %>
@@ -20,7 +20,7 @@
         <% }) %>
           <form action='/posts/<%= post._id %>/replies' method='POST'>
             <textarea name='content'></textarea><br>
-            <button>🆘 Send Out Support 🆘</button>
+            <button class='btn'>🆘 Send Out Support 🆘</button>
           </form>
           <% if (post.owner.equals(user?.profile._id)) { %>
             <a href='/posts/<%= post._id %>/edit'>

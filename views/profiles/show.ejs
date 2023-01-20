@@ -2,10 +2,10 @@
   <%- include('../partials/nav') %>
 
     <main>
-      <div><a href='/profiles/'><button>Back</button></a>
+      <div><a href='/profiles/'><button class='btn'>⬅Back⬅</button></a>
       </div>
       <div>
-        <img class='profile-avatar' src='<%= profile.avatar %>'' alt="<%= profile.name %>'s avatar">
+        <img class='profile-avatar' src='<%= profile.avatar %>'' alt="<%= profile.name %>' s avatar">
       </div>
       <h1>It's <%= isSelf ? "you" : profile.name %>!</h1>
       <% if (isSelf) {%>
@@ -24,7 +24,7 @@
             <input type='text' name='author' autocomplete='off'>
           </label>
           <br>
-          <button type='submit'>🔶 Add Quote 🔶</button>
+          <button type='submit' class='btn'>🔶 Add Quote 🔶</button>
         </form>
         <% } %>
           <h1>
@@ -44,7 +44,7 @@
                           <% if (isSelf) { %>
                             <form action='/profiles/quotes/<%= quote._id %>?_method=DELETE' method='POST'
                               style='display: inline-block;'>
-                              <button type='submit'> ❌ Remove ❌</button>
+                              <button type='submit' class='btn'> ❌ Remove ❌</button>
                               <% } %>
             </h3>
             <% }) %>
