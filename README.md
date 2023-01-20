@@ -12,7 +12,9 @@
 
 ---
 
-### Description: This small app allows interaction in 3 simple ways: Create, update, or delete a 'Monster Moment' (a big event or emotion) without other users knowing who you are, read and/or reply to someone else's 'Monster Moment', and add and remove quotes from your profile page! It's that easy! (Works best with mobile apps as of 1/20/2023)
+### Description: 
+
+  This small app allows interaction in 3 simple ways: Create, update, or delete a 'Monster Moment' (a big event or emotion) without other users knowing who you are, read and/or reply to someone else's 'Monster Moment', and add and remove quotes from your profile page! It's that easy! (Works best with mobile apps as of 1/20/2023)
 
 ---
 
