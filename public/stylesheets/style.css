@@ -28,6 +28,7 @@ body {
 nav {
   color: #66101F;
   background-color: #F1FFC4;
+  border: 2px dotted #23292F;
   font-size: 25px;
   grid-area: nav;
   display: flex;
@@ -62,6 +63,40 @@ nav>a:hover {
 
 nav>a.active {
   color: #5a0d0a;
+}
+
+a:link {
+  color: #F4B393;
+}
+
+a:visited {
+  color: #ff002b;
+}
+
+a:focus {
+  color: #ff002b;
+}
+
+a:hover {
+  color: #ff002b;
+}
+
+a:active {
+  color: #F4B393
+}
+
+textarea {
+  background-color: #47545e;
+  color:#F1FFC4;
+  font-family: 'Cute Font', cursive;
+  font-size: 25px;
+}
+
+input {
+  background-color: #47545e;
+  color:#F1FFC4;
+  font-family: 'Cute Font', cursive;
+  font-size: 25px;
 }
 
 main {
@@ -202,6 +237,7 @@ main {
 
 .navbar a:hover {
   background-color: #23292F;
+  color: #ff002b;
 }
 
 .active {
